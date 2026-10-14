@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>查如杭 · AiR 带教汇报 · 2026.10</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #12141a;
+      --muted: #5c6475;
+      --paper: #f3f5f8;
+      --white: #ffffff;
+      --folder: #4aa7ef;
+      --folder-deep: #2f86d6;
+      --butter: #f4e23a;
+      --pink: #ff8ab8;
+      --pink-deep: #e85a92;
+      --alert: #e23b3b;
+      --grid: rgba(18, 20, 26, 0.07);
+      --shadow: 0 18px 50px rgba(18, 20, 26, 0.08);
+      --radius: 18px;
+      --font-display: "Bricolage Grotesque", sans-serif;
+      --font-serif: "Instrument Serif", Georgia, serif;
+      --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, #eef5ff 0%, var(--paper) 28%, #f7f8fb 100%);
+      font-family: var(--font-display);
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,.55), transparent 70%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .wrap {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* —— NAV —— */
+    .topnav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(14px);
+      background: rgba(243, 245, 248, 0.78);
+      border-bottom: 1px solid rgba(18,20,26,.06);
+    }
+    .topnav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .85rem 0;
+    }
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+    .brand-mark .dot {
+      width: 12px;
+      height: 12px;
+      background: var(--butter);
+      border: 2px solid var(--ink);
+      box-shadow: 3px 3px 0 var(--folder);
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem .85rem;
+      font-size: .82rem;
+      color: var(--muted);
+      font-family: var(--font-mono);
+    }
+    .nav-links a:hover { color: var(--ink); }
+
+    /* —— HERO —— */
+    .hero {
+      min-height: min(100vh, 920px);
+      display: grid;
+      align-items: end;
+      padding: 2.5rem 0 3.5rem;
+      position: relative;
+    }
+    .hero-stage {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 2rem;
+      align-items: end;
+    }
+    .hero-copy h1 {
+      margin: 0;
+      font-size: clamp(3rem, 8vw, 5.6rem);
+      line-height: .92;
+      letter-spacing: -.045em;
+      font-weight: 800;
+    }
+    .hero-copy h1 span {
+      display: block;
+      color: var(--folder-deep);
+    }
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      margin-bottom: 1rem;
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+    }
+    .hero-kicker i {
+      width: 28px;
+      height: 2px;
+      background: var(--ink);
+      display: inline-block;
+    }
+    .hero-lead {
+      margin: 1.25rem 0 1.75rem;
+      max-width: 34rem;
+      font-size: 1.15rem;
+      color: var(--muted);
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.35rem;
+      color: #2a3140;
+    }
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .85rem 1.15rem;
+      border: 2px solid var(--ink);
+      background: var(--ink);
+      color: var(--white);
+      font-weight: 700;
+      font-size: .95rem;
+      transition: transform .25s ease, box-shadow .25s ease;
+      box-shadow: 4px 4px 0 var(--folder);
+    }
+    .btn.ghost {
+      background: var(--white);
+      color: var(--ink);
+      box-shadow: 4px 4px 0 var(--butter);
+    }
+    .btn:hover { transform: translate(-2px, -2px); }
+
+    .hero-visual {
+      position: relative;
+      min-height: 420px;
+    }
+    .meal-poster {
+      position: relative;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(74,167,239,.18), transparent 40%),
+        linear-gradient(180deg, #fff 0%, #f7f9fc 100%);
+      border: 2px solid var(--ink);
+      box-shadow: 8px 8px 0 rgba(74,167,239,.35);
+      padding: 1.25rem 1.25rem 1.5rem;
+      overflow: hidden;
+      height: 100%;
+    }
+    .meal-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-family: var(--font-serif);
+      font-size: .95rem;
+      color: var(--muted);
+      margin-bottom: .35rem;
+    }
+    .meal-title {
+      text-align: center;
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      margin: .2rem 0 1rem;
+    }
+    .meal-art {
+      position: relative;
+      height: 260px;
+      display: grid;
+      place-items: center;
+    }
+    .folder {
+      position: absolute;
+      width: 92px;
+      height: 68px;
+      background: linear-gradient(180deg, #6bbcff, var(--folder));
+      border: 2px solid var(--ink);
+      border-radius: 6px 12px 10px 10px;
+      box-shadow: 3px 3px 0 rgba(18,20,26,.15);
+      animation: floaty 4.5s ease-in-out infinite;
+    }
+    .folder::before {
+      content: "";
+      position: absolute;
+      top: -12px;
+      left: 8px;
+      width: 34px;
+      height: 14px;
+      background: inherit;
+      border: 2px solid var(--ink);
+      border-bottom: 0;
+      border-radius: 6px 6px 0 0;
+    }
+    .folder.f1 { top: 18px; left: 18%; animation-delay: 0s; }
+    .folder.f2 { top: 56px; left: 42%; animation-delay: .4s; transform: rotate(8deg); }
+    .folder.f3 { top: 28px; right: 14%; animation-delay: .8s; transform: rotate(-6deg); }
+    .plate {
+      position: absolute;
+      bottom: 18px;
+      width: 180px;
+      height: 34px;
+      background: linear-gradient(180deg, #eceff4, #c9ced8);
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      box-shadow: inset 0 8px 12px rgba(255,255,255,.6);
+    }
+    .folder.meal {
+      position: absolute;
+      bottom: 42px;
+      width: 110px;
+      height: 78px;
+      animation: none;
+      z-index: 2;
+    }
+    .butter {
+      position: absolute;
+      bottom: 108px;
+      width: 28px;
+      height: 28px;
+      background: var(--butter);
+      border: 2px solid var(--ink);
+      z-index: 3;
+      transform: rotate(8deg);
+    }
+    .crumb {
+      position: absolute;
+      width: 14px;
+      height: 10px;
+      background: var(--butter);
+      border: 1.5px solid var(--ink);
+      border-radius: 40% 60% 50% 50%;
+      animation: crumb 3.2s ease-in-out infinite;
+    }
+    .crumb.c1 { bottom: 28px; left: 22%; }
+    .crumb.c2 { bottom: 48px; right: 24%; animation-delay: .5s; }
+    .crumb.c3 { bottom: 72px; left: 30%; animation-delay: 1s; }
+    .meal-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: .75rem;
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      color: var(--muted);
+    }
+    .meal-foot strong {
+      font-family: var(--font-display);
+      color: var(--ink);
+      font-size: .85rem;
+      letter-spacing: -.01em;
+    }
+    .cursor-deco {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-left: 3px solid var(--ink);
+      border-bottom: 3px solid transparent;
+      border-right: 3px solid transparent;
+      border-top: 3px solid transparent;
+      transform: rotate(-20deg);
+      filter: drop-shadow(1px 1px 0 #fff);
+      animation: click 2.4s ease-in-out infinite;
+      z-index: 5;
+    }
+    .cursor-deco.one { top: 34%; right: 18%; }
+    .cursor-deco.two { bottom: 22%; left: 12%; animation-delay: .8s; }
+
+    .mascot-float {
+      position: absolute;
+      right: -18px;
+      bottom: -28px;
+      width: 120px;
+      transform: rotate(8deg);
+      filter: drop-shadow(0 12px 18px rgba(232,90,146,.25));
+      animation: bob 3.8s ease-in-out infinite;
+      z-index: 6;
+    }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    @keyframes crumb {
+      0%, 100% { transform: translateY(0) rotate(0); }
+      50% { transform: translateY(-6px) rotate(12deg); }
+    }
+    @keyframes click {
+      0%, 100% { transform: rotate(-20deg) scale(1); opacity: .85; }
+      50% { transform: rotate(-20deg) translate(4px, 6px) scale(.92); opacity: 1; }
+    }
+    @keyframes bob {
+      0%, 100% { transform: rotate(8deg) translateY(0); }
+      50% { transform: rotate(4deg) translateY(-10px); }
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: none; }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* —— SECTIONS —— */
+    section {
+      padding: 4.5rem 0 1rem;
+    }
+    .sec-head {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      align-items: end;
+      margin-bottom: 1.75rem;
+    }
+    .sec-tag {
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .sec-head h2 {
+      margin: .15rem 0 0;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -.03em;
+      line-height: 1;
+    }
+    .sec-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 3px solid var(--ink);
+      background: var(--folder);
+      display: grid;
+      place-items: center;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .sec-icon .arrow-guitar {
+      width: 42px;
+      height: 14px;
+      background: var(--white);
+      clip-path: polygon(0 35%, 68% 35%, 68% 0, 100% 50%, 68% 100%, 68% 65%, 0 65%);
+      position: relative;
+    }
+    .sec-icon .arrow-guitar::after {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 3px;
+      width: 18px;
+      height: 1px;
+      box-shadow: 0 3px 0 #111, 0 6px 0 #111;
+      background: #111;
+    }
+
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .85rem;
+      margin: 1.5rem 0 2.5rem;
+    }
+    .stat {
+      background: var(--white);
+      border: 2px solid var(--ink);
+      padding: 1rem 1.1rem;
+      box-shadow: 4px 4px 0 var(--butter);
+      min-height: 110px;
+    }
+    .stat .label {
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      color: var(--muted);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .stat .num {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      margin-top: .35rem;
+      line-height: 1;
+    }
+    .stat .hint {
+      margin-top: .45rem;
+      font-size: .85rem;
+      color: var(--muted);
+    }
+
+    /* Working meal menu */
+    .menu-board {
+      background: var(--white);
+      border: 2px solid var(--ink);
+      box-shadow: 8px 8px 0 rgba(74,167,239,.25);
+      padding: 1.5rem;
+    }
+    .menu-meta {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-serif);
+      color: var(--muted);
+      margin-bottom: .5rem;
+    }
+    .menu-board h3 {
+      margin: 0 0 1.25rem;
+      text-align: center;
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 400;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 1.5rem;
+    }
+    .menu-list {
+      display: grid;
+      gap: .85rem;
+    }
+    .dish {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: .85rem;
+      align-items: start;
+      padding-bottom: .85rem;
+      border-bottom: 1px dashed rgba(18,20,26,.18);
+    }
+    .dish-time {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      color: var(--folder-deep);
+      padding-top: .2rem;
+      min-width: 4.2rem;
+    }
+    .dish h4 {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: -.01em;
+    }
+    .dish p {
+      margin: .25rem 0 0;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+    .dish .tag {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      background: var(--butter);
+      border: 1.5px solid var(--ink);
+      padding: .2rem .4rem;
+      white-space: nowrap;
+    }
+    .menu-side {
+      background:
+        linear-gradient(180deg, rgba(74,167,239,.08), transparent),
+        #f8fafc;
+      border: 2px solid var(--ink);
+      padding: 1rem;
+      position: relative;
+    }
+    .menu-side img.motifs {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      object-position: right center;
+      border: 2px solid var(--ink);
+      margin-bottom: .85rem;
+    }
+    .menu-side .note {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      margin: 0;
+    }
+
+    /* Spreadsheet block */
+    .sheet {
+      border: 2px solid var(--ink);
+      background: var(--white);
+      overflow: hidden;
+      box-shadow: 6px 6px 0 rgba(18,20,26,.08);
+    }
+    .sheet-bar {
+      display: flex;
+      gap: .35rem;
+      padding: .55rem .75rem;
+      background: #e8edf4;
+      border-bottom: 2px solid var(--ink);
+      font-family: var(--font-mono);
+      font-size: .72rem;
+    }
+    .sheet-bar span {
+      padding: .2rem .55rem;
+      background: var(--white);
+      border: 1px solid rgba(18,20,26,.2);
+    }
+    .sheet-bar span.on {
+      background: var(--folder);
+      color: var(--white);
+      border-color: var(--ink);
+    }
+    .sheet table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .9rem;
+    }
+    .sheet th, .sheet td {
+      border-bottom: 1px solid rgba(18,20,26,.08);
+      border-right: 1px solid rgba(18,20,26,.06);
+      padding: .75rem .8rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    .sheet th {
+      background: #f4f7fb;
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .sheet tr:hover td { background: rgba(74,167,239,.06); }
+    .pill {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      padding: .15rem .4rem;
+      border: 1.5px solid var(--ink);
+      background: #d9f0ff;
+    }
+    .pill.warn { background: #ffe8a8; }
+    .pill.ok { background: #d8f5c8; }
+
+    /* Thinking / feelings */
+    .split-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .thought {
+      background: var(--white);
+      border: 2px solid var(--ink);
+      padding: 1.25rem 1.35rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .thought::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--folder) 0 16px,
+        var(--butter) 16px 32px,
+        var(--pink) 32px 48px
+      );
+    }
+    .thought h3 {
+      margin: .6rem 0 .5rem;
+      font-size: 1.2rem;
+      letter-spacing: -.02em;
+    }
+    .thought p, .thought li {
+      color: #3a4150;
+      font-size: .95rem;
+    }
+    .thought ul {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+    .scribble {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.35rem;
+      line-height: 1.35;
+      margin: 0;
+    }
+    .feel-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .85rem;
+      margin-top: 1rem;
+    }
+    .feel {
+      border: 2px solid var(--ink);
+      background: var(--white);
+      padding: 1rem;
+      min-height: 140px;
+    }
+    .feel .cap {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--muted);
+      margin-bottom: .45rem;
+    }
+    .feel p {
+      margin: 0;
+      font-size: .95rem;
+    }
+
+    /* OS dialogs for problems */
+    .dialog-stack {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      position: relative;
+    }
+    .os-dialog {
+      background: #ece9d8;
+      border: 2px solid #0a0a0a;
+      box-shadow: 5px 5px 0 rgba(0,0,0,.25);
+      font-family: var(--font-mono);
+      font-size: .82rem;
+    }
+    .os-title {
+      background: linear-gradient(90deg, #0a246a, #a6caf0);
+      color: #fff;
+      padding: .35rem .55rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .75rem;
+    }
+    .os-x {
+      width: 16px;
+      height: 14px;
+      background: #c0c0c0;
+      border: 1px solid #fff;
+      border-right-color: #404040;
+      border-bottom-color: #404040;
+      color: #000;
+      display: grid;
+      place-items: center;
+      font-size: .65rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .os-body {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: .75rem;
+      padding: .9rem;
+      align-items: start;
+    }
+    .os-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid #c0392b;
+      color: #c0392b;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+    .os-body h4 {
+      margin: 0 0 .35rem;
+      font-family: var(--font-display);
+      font-size: 1rem;
+    }
+    .os-body p {
+      margin: 0;
+      color: #2b2b2b;
+      line-height: 1.45;
+    }
+    .os-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: .4rem;
+      padding: 0 .75rem .75rem;
+    }
+    .os-btn {
+      min-width: 76px;
+      text-align: center;
+      padding: .25rem .5rem;
+      background: #c0c0c0;
+      border: 2px solid #fff;
+      border-right-color: #404040;
+      border-bottom-color: #404040;
+      font-family: var(--font-mono);
+      font-size: .72rem;
+    }
+
+    /* Workflow alignment */
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .75rem;
+      margin-top: .5rem;
+    }
+    .flow-step {
+      background: var(--white);
+      border: 2px solid var(--ink);
+      padding: 1rem;
+      position: relative;
+    }
+    .flow-step::after {
+      content: "→";
+      position: absolute;
+      right: -.55rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: 800;
+      color: var(--folder-deep);
+      z-index: 2;
+      background: var(--paper);
+      width: 1rem;
+      text-align: center;
+    }
+    .flow-step:last-child::after { display: none; }
+    .flow-step .n {
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      color: var(--muted);
+    }
+    .flow-step h4 {
+      margin: .35rem 0;
+      font-size: 1rem;
+    }
+    .flow-step p {
+      margin: 0;
+      font-size: .88rem;
+      color: var(--muted);
+    }
+    .align-list {
+      margin-top: 1.25rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .65rem 1.25rem;
+    }
+    .align-item {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: .55rem;
+      align-items: start;
+      font-size: .92rem;
+    }
+    .align-item .cursor {
+      width: 0;
+      height: 0;
+      border-left: 10px solid var(--ink);
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      margin-top: .35rem;
+    }
+
+    /* Next asks */
+    .ask-panel {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .ask-main {
+      background: var(--white);
+      border: 2px solid var(--ink);
+      padding: 1.5rem;
+      box-shadow: 8px 8px 0 var(--butter);
+    }
+    .ask-main h3 {
+      margin: 0 0 .75rem;
+      font-size: 1.6rem;
+      letter-spacing: -.02em;
+    }
+    .loading-row {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin: 1rem 0;
+      font-family: var(--font-mono);
+      font-size: .8rem;
+      color: var(--muted);
+    }
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(18,20,26,.15);
+      border-top-color: var(--folder);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+    .ask-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: grid;
+      gap: .65rem;
+    }
+    .ask-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: .65rem;
+      padding: .75rem;
+      border: 1.5px dashed rgba(18,20,26,.25);
+      background: #f8fbff;
+    }
+    .ask-list .badge {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      background: var(--pink);
+      border: 1.5px solid var(--ink);
+      padding: .25rem .4rem;
+      height: fit-content;
+    }
+    .ask-side {
+      display: grid;
+      gap: .85rem;
+    }
+    .sign {
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 6px solid var(--white);
+      outline: 3px solid var(--ink);
+      background: var(--folder-deep);
+      display: grid;
+      place-items: center;
+      position: relative;
+      box-shadow: 0 16px 40px rgba(47,134,214,.25);
+    }
+    .sign-fig {
+      width: 58%;
+      height: 58%;
+      position: relative;
+    }
+    .sign-person {
+      position: absolute;
+      left: 28%;
+      top: 18%;
+      width: 28%;
+      height: 55%;
+      background: #8b1e2d;
+      clip-path: polygon(40% 0, 70% 0, 75% 28%, 100% 70%, 70% 75%, 55% 45%, 60% 100%, 25% 100%, 35% 55%, 15% 78%, 5% 65%, 35% 40%);
+    }
+    .sign-arrow {
+      position: absolute;
+      left: 5%;
+      top: 42%;
+      width: 90%;
+      height: 22%;
+      background: #fff;
+      clip-path: polygon(0 30%, 72% 30%, 72% 0, 100% 50%, 72% 100%, 72% 70%, 0 70%);
+    }
+    .request-box {
+      background: var(--white);
+      border: 2px solid var(--ink);
+      padding: 1rem 1.1rem;
+    }
+    .request-box h4 {
+      margin: 0 0 .5rem;
+      font-size: 1.05rem;
+    }
+    .request-box ol {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: #333a48;
+      font-size: .9rem;
+    }
+
+    /* Feedback table */
+    .feedback {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      border: 2px solid var(--ink);
+      font-size: .9rem;
+    }
+    .feedback th, .feedback td {
+      border: 1px solid rgba(18,20,26,.12);
+      padding: .85rem;
+      vertical-align: top;
+    }
+    .feedback th {
+      background: #eef4fb;
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .feedback td.write {
+      min-height: 64px;
+      background: repeating-linear-gradient(
+        transparent,
+        transparent 27px,
+        rgba(74,167,239,.15) 28px
+      );
+    }
+
+    footer {
+      padding: 3rem 0 4rem;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .hero-stage,
+      .menu-grid,
+      .split-2,
+      .dialog-stack,
+      .ask-panel,
+      .align-list,
+      .feel-grid,
+      .stat-strip,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+      .flow-step::after { display: none; }
+      .nav-links { display: none; }
+      .mascot-float { width: 96px; right: 0; }
+      .hero { min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topnav">
+    <div class="wrap topnav-inner">
+      <div class="brand-mark">
+        <span class="dot" aria-hidden="true"></span>
+        查如杭 · AiR 放大
+      </div>
+      <nav class="nav-links" aria-label="章节">
+        <a href="#done">做了什么</a>
+        <a href="#think">思考</a>
+        <a href="#feel">感受</a>
+        <a href="#problems">问题</a>
+        <a href="#align">流程对齐</a>
+        <a href="#next">还想做</a>
+        <a href="#ask">请带教拍板</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero wrap" id="top">
+      <div class="hero-stage">
+        <div class="hero-copy">
+          <div class="hero-kicker"><i></i> Manlun Internship · 2026.09.02 → 10.14</div>
+          <h1>查如杭<span>带教汇报</span></h1>
+          <p class="hero-lead">
+            六个星期：把「剪片」跑成「可投放、可裂变、可读数」的内容工厂节奏。<br />
+            下一步想吃透千川罗盘，并接上真人实拍创意脚本。
+          </p>
+          <div class="hero-ctas">
+            <a class="btn" href="#done">今日 Work Bread →</a>
+            <a class="btn ghost" href="#ask">请带教拍板</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="meal-poster">
+            <div class="meal-top">
+              <span>(fine) goods</span>
+              <span>(24h) satiety</span>
+            </div>
+            <div class="meal-title">working meal :)</div>
+            <div class="meal-art">
+              <div class="folder f1"></div>
+              <div class="folder f2"></div>
+              <div class="folder f3"></div>
+              <div class="folder meal"></div>
+              <div class="butter"></div>
+              <div class="plate"></div>
+              <div class="crumb c1"></div>
+              <div class="crumb c2"></div>
+              <div class="crumb c3"></div>
+              <div class="cursor-deco one"></div>
+              <div class="cursor-deco two"></div>
+            </div>
+            <div class="meal-foot">
+              <span>08:30 am</span>
+              <strong>Work Bread To Energize Your Day</strong>
+              <span>pm 12:30</span>
+            </div>
+            <img class="mascot-float" src="assets/mascot.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="wrap reveal">
+      <div class="stat-strip">
+        <div class="stat">
+          <div class="label">工作台 · 成片</div>
+          <div class="num">372</div>
+          <div class="hint">查如杭-AiR放大</div>
+        </div>
+        <div class="stat">
+          <div class="label">素材资产</div>
+          <div class="num">113</div>
+          <div class="hint">主线视频成片</div>
+        </div>
+        <div class="stat">
+          <div class="label">单条高消耗</div>
+          <div class="num">¥7.6万+</div>
+          <div class="hint">ROI ≈ 1.21–1.30</div>
+        </div>
+        <div class="stat">
+          <div class="label">阶段定位</div>
+          <div class="num">M1→M2</div>
+          <div class="hint">前瞻第 3 月脚本</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DONE -->
+    <section class="wrap" id="done">
+      <div class="sec-head reveal">
+        <div class="sec-icon" title="creative direction">
+          <div class="arrow-guitar"></div>
+        </div>
+        <div>
+          <div class="sec-tag">01 · Working Meal</div>
+          <h2>做了什么</h2>
+        </div>
+      </div>
+
+      <div class="menu-board reveal">
+        <div class="menu-meta">
+          <span>(fine) goods</span>
+          <span>AiR 组日菜单</span>
+          <span>(24h) satiety</span>
+        </div>
+        <h3>today’s work bread</h3>
+        <div class="menu-grid">
+          <div class="menu-list">
+            <article class="dish">
+              <div class="dish-time">08:30</div>
+              <div>
+                <h4>裂变混剪 · 开头批量测试</h4>
+                <p>对齐 80% 裂变 / 20% 拓新；单日开头测试可达 40 条量级。</p>
+              </div>
+              <span class="tag">P0</span>
+            </article>
+            <article class="dish">
+              <div class="dish-time">10:00</div>
+              <div>
+                <h4>实拍消化 · 街采 / 研发中心</h4>
+                <p>跟拍前后场整理，把真人镜头剪进可投放成片。</p>
+              </div>
+              <span class="tag">实拍</span>
+            </article>
+            <article class="dish">
+              <div class="dish-time">14:00</div>
+              <div>
+                <h4>AI 外壳 · 鄙视链多壳</h4>
+                <p>王座视觉壳 / 周星驰话术壳等同骨架多壳测试；云视频 / 即梦协作出片。</p>
+              </div>
+              <span class="tag">AI</span>
+            </article>
+            <article class="dish">
+              <div class="dish-time">16:30</div>
+              <div>
+                <h4>千川罗盘读数</h4>
+                <p>成片推送投放 → 看消耗 / ROI / 引用镜头，标记「可优化」再迭代。</p>
+              </div>
+              <span class="tag">数据</span>
+            </article>
+          </div>
+          <aside class="menu-side">
+            <img class="motifs" src="assets/motifs.png" alt="working meal & creative direction motifs" />
+            <p class="note">“Work bread to energize your day” —— 把产能当日常燃料，把投放反馈当消化指标。</p>
+          </aside>
+        </div>
+      </div>
+
+      <div class="sheet reveal" style="margin-top:1.25rem">
+        <div class="sheet-bar">
+          <span class="on">素材数据</span>
+          <span>成片</span>
+          <span>引用镜头</span>
+          <span>ml-zrh-air</span>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>观察窗</th>
+              <th>消耗</th>
+              <th>ROI</th>
+              <th>转化信号</th>
+              <th>我在链路中</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>9/16–10/14</td>
+              <td>≈ ¥76,190</td>
+              <td><span class="pill ok">1.30</span></td>
+              <td>转化 880 · CVR 2.2% · 成本 ≈¥86.6</td>
+              <td>开始用罗盘找「吃消耗」的镜头</td>
+            </tr>
+            <tr>
+              <td>9/23–10/14</td>
+              <td>≈ ¥53,352</td>
+              <td><span class="pill ok">1.27</span></td>
+              <td>转化 603 · CVR 4.24%</td>
+              <td>跨批次对照效率</td>
+            </tr>
+            <tr>
+              <td>9/20–10/14</td>
+              <td>≈ ¥32,058</td>
+              <td><span class="pill">1.26</span></td>
+              <td>转化 364 · CVR 3.5%</td>
+              <td>练习跨时间窗读数</td>
+            </tr>
+            <tr>
+              <td>高消耗成片</td>
+              <td>¥5万–7.6万+</td>
+              <td><span class="pill warn">1.21–1.26</span></td>
+              <td>部分标「可优化」</td>
+              <td>判断继续裂变 / 改开头</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- THINK -->
+    <section class="wrap" id="think">
+      <div class="sec-head reveal">
+        <div class="sec-icon" style="background:var(--butter)">
+          <div class="arrow-guitar"></div>
+        </div>
+        <div>
+          <div class="sec-tag">02 · Think Fresh</div>
+          <h2>思考了什么</h2>
+        </div>
+      </div>
+      <div class="split-2 reveal">
+        <article class="thought">
+          <h3>内容工厂主轴</h3>
+          <ul>
+            <li>裂变优先 · 外壳 × 内核 · 单变量测试</li>
+            <li>确定性迭代先于未验证拓新</li>
+            <li>AI 求「难抄 + 精致」，不只求快</li>
+            <li>个人总目标钉死：做爆款</li>
+          </ul>
+        </article>
+        <article class="thought">
+          <h3>从片级到镜头级</h3>
+          <p>罗盘「引用视频镜头」让我看到：长占用镜头（如 9822 ≈10s+）偏信任叙事，短钩子（0.3–1s）偏进场。裂变应先锁已验证镜头，再只换一个变量。</p>
+        </article>
+        <article class="thought">
+          <h3>ROI 卡在 1.2–1.3</h3>
+          <p>转化成本约 ¥86–88 时，同质裂变边际变薄。更需要新前 3s、新真人钩子、新 S 级镜头 —— 这也是我想往脚本上游走的原因。</p>
+        </article>
+        <article class="thought">
+          <h3>已踩过的纪律</h3>
+          <p class="scribble">测开头就只换开头。<br />一次只动一个变量。<br />外壳负责爆量，内核负责转化。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FEEL -->
+    <section class="wrap" id="feel">
+      <div class="sec-head reveal">
+        <div class="sec-icon" style="background:var(--pink)">
+          <div class="arrow-guitar"></div>
+        </div>
+        <div>
+          <div class="sec-tag">03 · Human Signal</div>
+          <h2>什么感受</h2>
+        </div>
+      </div>
+      <div class="feel-grid reveal">
+        <div class="feel">
+          <div class="cap">充实</div>
+          <p>成片能进投放、消耗能跑起来，比「只交作业」更有反馈感。</p>
+        </div>
+        <div class="feel">
+          <div class="cap">焦虑</div>
+          <p>产能上来后，最怕剪得多但归因不清 —— 不知道哪条外壳真正贡献消耗。</p>
+        </div>
+        <div class="feel">
+          <div class="cap">想往上游</div>
+          <p>对真人实拍脚本有兴趣：不是跳过剪辑，而是让拍摄少废片、测试更准。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEMS -->
+    <section class="wrap" id="problems">
+      <div class="sec-head reveal">
+        <div class="sec-icon" style="background:#ffd0d0">
+          <div class="arrow-guitar"></div>
+        </div>
+        <div>
+          <div class="sec-tag">04 · System Message</div>
+          <h2>出现过什么问题</h2>
+        </div>
+      </div>
+      <div class="dialog-stack reveal">
+        <div class="os-dialog">
+          <div class="os-title"><span>System Message</span><span class="os-x">×</span></div>
+          <div class="os-body">
+            <div class="os-icon">!</div>
+            <div>
+              <h4>测试混变量</h4>
+              <p>测外验开头时混入未验证片段 → 归因失败。已纠偏为单变量工单思维。</p>
+            </div>
+          </div>
+          <div class="os-actions"><span class="os-btn">Fixed</span><span class="os-btn">Need SOP</span></div>
+        </div>
+        <div class="os-dialog">
+          <div class="os-title"><span>System Message</span><span class="os-x">×</span></div>
+          <div class="os-body">
+            <div class="os-icon">!</div>
+            <div>
+              <h4>罗盘「会看」未「会用」</h4>
+              <p>能读消耗/ROI/转化，但还不够熟到每天主动开罗盘定裂变清单。</p>
+            </div>
+          </div>
+          <div class="os-actions"><span class="os-btn">Ask Mentor</span></div>
+        </div>
+        <div class="os-dialog">
+          <div class="os-title"><span>System Message</span><span class="os-x">×</span></div>
+          <div class="os-body">
+            <div class="os-icon">!</div>
+            <div>
+              <h4>破万单口径未钉死</h4>
+              <p>过程指标强（成片量、投放消耗），结果指标「破万单」需带教对齐统计规则。</p>
+            </div>
+          </div>
+          <div class="os-actions"><span class="os-btn">Align KPI</span></div>
+        </div>
+        <div class="os-dialog">
+          <div class="os-title"><span>System Message</span><span class="os-x">×</span></div>
+          <div class="os-body">
+            <div class="os-icon">!</div>
+            <div>
+              <h4>脚本仍是短板</h4>
+              <p>写过鄙视链雏形；真人实拍创意脚本尚未系统承接（对齐计划第 3 月）。</p>
+            </div>
+          </div>
+          <div class="os-actions"><span class="os-btn">Ready</span><span class="os-btn">When?</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALIGN -->
+    <section class="wrap" id="align">
+      <div class="sec-head reveal">
+        <div class="sec-icon">
+          <div class="arrow-guitar"></div>
+        </div>
+        <div>
+          <div class="sec-tag">05 · Rhythm & Direction</div>
+          <h2>对齐了哪些细节与流程</h2>
+        </div>
+      </div>
+      <div class="flow reveal">
+        <div class="flow-step">
+          <div class="n">01</div>
+          <h4>复盘昨日</h4>
+          <p>以消耗结果为导向</p>
+        </div>
+        <div class="flow-step">
+          <div class="n">02</div>
+          <h4>看爆量素材</h4>
+          <p>大盘 + 内部讨论是否复制</p>
+        </div>
+        <div class="flow-step">
+          <div class="n">03</div>
+          <h4>陈述当日计划</h4>
+          <p>内容方向不重复</p>
+        </div>
+        <div class="flow-step">
+          <div class="n">04</div>
+          <h4>成片→投放→迭代</h4>
+          <p>罗盘「可优化」再裂变</p>
+        </div>
+      </div>
+      <div class="align-list reveal">
+        <div class="align-item"><span class="cursor"></span><div><strong>资源配比</strong>：爆量日混剪裂变 80% / 小要素拓新 20%</div></div>
+        <div class="align-item"><span class="cursor"></span><div><strong>测法</strong>：只换外壳 / 堆叠元素 / 脚本框架；测开头只换开头</div></div>
+        <div class="align-item"><span class="cursor"></span><div><strong>命名</strong>：`自营-AiR组-日期-…` · 竖屏 9:16</div></div>
+        <div class="align-item"><span class="cursor"></span><div><strong>卖点口径</strong>：参数→收益→感官；避免不当医学化</div></div>
+        <div class="align-item"><span class="cursor"></span><div><strong>拓新红线</strong>：肖像权 · 平台审核 · 达人侵权</div></div>
+        <div class="align-item"><span class="cursor"></span><div><strong>素材基建</strong>：演员名+台词命名、前后场整理、主动发现缺镜</div></div>
+      </div>
+    </section>
+
+    <!-- NEXT -->
+    <section class="wrap" id="next">
+      <div class="sec-head reveal">
+        <div class="sec-icon" style="background:var(--butter)">
+          <div class="arrow-guitar"></div>
+        </div>
+        <div>
+          <div class="sec-tag">06 · Loading Next Level</div>
+          <h2>还想做什么</h2>
+        </div>
+      </div>
+      <div class="ask-panel reveal">
+        <div class="ask-main">
+          <h3>① 熟练使用千川罗盘后台</h3>
+          <div class="loading-row">
+            <div class="spinner" aria-hidden="true"></div>
+            <span>status: can-read → want: can-decide</span>
+          </div>
+          <p style="margin:0;color:var(--muted)">希望把「每日开罗盘」变成固定动作，输出：可裂变镜头清单 · 加预算/停投判断 · 每周一页 TOP 复盘给带教。</p>
+          <ul class="ask-list">
+            <li><span class="badge">NEED</span><div>一次 30–60 分钟罗盘带教，或跟投一周早会看数</div></li>
+            <li><span class="badge">GOAL</span><div>工作台归因到人 · 素材数据决策 · 引用镜头找钩子 · 「可优化」给改法</div></li>
+          </ul>
+          <h3 style="margin-top:1.75rem">② 真人实拍创意脚本</h3>
+          <p style="margin:0;color:var(--muted)">对齐实习计划第 3 月。已接触大量真人成片与街采/研发中心素材，想提前进入需求侧。</p>
+          <ul class="ask-list">
+            <li><span class="badge">Q</span><div>什么时候可以正式写真人实拍创意脚本？要不要先完成破万单？</div></li>
+            <li><span class="badge">Q</span><div>脚本是跟拍前工单制，还是先拍后补结构？</div></li>
+            <li><span class="badge">CAN</span><div>我可立刻交：3 个前 3s 钩子变体 · 1 份内核卖点→实拍分镜 · 每周 1 条「可优化」真人片改法脚本</div></li>
+          </ul>
+        </div>
+        <div class="ask-side">
+          <div class="sign" aria-hidden="true" title="creative direction">
+            <div class="sign-fig">
+              <div class="sign-arrow"></div>
+              <div class="sign-person"></div>
+            </div>
+          </div>
+          <div class="request-box">
+            <h4>资源支持清单</h4>
+            <ol>
+              <li>千川罗盘后台带教 / 答疑</li>
+              <li>破万单统计口径对齐</li>
+              <li>明确真人实拍脚本接单时间与标准</li>
+            </ol>
+          </div>
+          <img src="assets/moodboard.png" alt="moodboard references" style="border:2px solid var(--ink); width:100%; height:180px; object-fit:cover;" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ASK MENTOR -->
+    <section class="wrap" id="ask">
+      <div class="sec-head reveal">
+        <div class="sec-icon" style="background:#d8f5c8">
+          <div class="arrow-guitar"></div>
+        </div>
+        <div>
+          <div class="sec-tag">07 · Mentor Feedback</div>
+          <h2>请带教拍板</h2>
+        </div>
+      </div>
+      <table class="feedback reveal">
+        <thead>
+          <tr>
+            <th style="width:8%">#</th>
+            <th style="width:42%">想确认的事</th>
+            <th style="width:25%">带教反馈</th>
+            <th style="width:25%">BP 反馈</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>我当前按计划算第几月？能否部分提前做第 3 月脚本？</td>
+            <td class="write"></td>
+            <td class="write"></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>破万单如何统计到我个人？</td>
+            <td class="write"></td>
+            <td class="write"></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>罗盘带教能否本周内安排？</td>
+            <td class="write"></td>
+            <td class="write"></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>真人实拍脚本：何时 / 先交几条样稿算入门？</td>
+            <td class="write"></td>
+            <td class="write"></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>近期高消耗「可优化」成片，是否由我主笔一版优化脚本？</td>
+            <td class="write"></td>
+            <td class="write"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="menu-board reveal" style="margin-top:1.25rem">
+        <div class="menu-meta">
+          <span>员工总结</span>
+          <span>可贴进沟通反馈表</span>
+          <span>2026-10-14</span>
+        </div>
+        <p style="margin:.5rem 0 0; font-size:.95rem; color:#333a48">
+          <strong>工作计划：</strong>每日罗盘复盘 → 维持裂变产能与单变量纪律 → 在授权下启动真人实拍创意脚本。<br />
+          <strong>结果差异：</strong>产能与投放闭环已建立；破万单结果指标待口径对齐；罗盘从「会看」到「会用」仍是最大过程差距。<br />
+          <strong>问题 / 支持：</strong>混变量、脚本短板、罗盘决策未熟 → 需要罗盘带教、KPI 口径、脚本接单时间点。
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div>查如杭 · 曼伦实习 · 杜蕾斯 AiR 放大 · ml-zrh-air</div>
+    <div>visual system: working meal / direction sign / system dialog / spreadsheet grid</div>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) e.target.classList.add("in");
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>
