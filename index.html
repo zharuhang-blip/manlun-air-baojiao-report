@@ -638,6 +638,44 @@
       gap: .85rem;
       margin-top: 1rem;
     }
+    .learn-board {
+      margin-top: 1.25rem;
+      background: var(--white);
+      border: 2px solid var(--ink);
+      box-shadow: 6px 6px 0 rgba(255, 138, 184, .35);
+      padding: 1.25rem 1.35rem;
+    }
+    .learn-board h3 {
+      margin: 0 0 .85rem;
+      font-size: 1.25rem;
+      letter-spacing: -.02em;
+    }
+    .learn-board .learn-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .85rem;
+    }
+    .learn-item {
+      border: 1.5px dashed rgba(18,20,26,.22);
+      background: #fff8fb;
+      padding: .9rem 1rem;
+    }
+    .learn-item .cap {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--pink-deep);
+      margin-bottom: .4rem;
+    }
+    .learn-item p {
+      margin: 0;
+      font-size: .92rem;
+      color: #3a4150;
+    }
+    @media (max-width: 900px) {
+      .learn-board .learn-grid { grid-template-columns: 1fr; }
+    }
     .feel {
       border: 2px solid var(--ink);
       background: var(--white);
@@ -971,6 +1009,7 @@
         grid-template-columns: 1fr;
       }
       .flow-step::after { display: none; }
+      .flow[style] { grid-template-columns: 1fr !important; }
       .nav-links { display: none; }
       .mascot-float { width: 96px; right: 0; }
       .hero { min-height: auto; }
@@ -1243,6 +1282,24 @@
           <p>对真人实拍脚本有兴趣：不是跳过剪辑，而是让拍摄少废片、测试更准。</p>
         </div>
       </div>
+
+      <div class="learn-board reveal">
+        <h3>还感受到：需要继续学的点</h3>
+        <div class="learn-grid">
+          <div class="learn-item">
+            <div class="cap">电商风格剪辑</div>
+            <p>营销号皮（配乐 / 特效 / 字幕 / 转场）和电商节奏手感还不够稳，和组内「能跑量」的风格有差距，要持续对标练。</p>
+          </div>
+          <div class="learn-item">
+            <div class="cap">效率</div>
+            <p>批量开头、裂变、实拍消化、发片并行时，出片速度和一次过审率还能再提；少返工才是真效率。</p>
+          </div>
+          <div class="learn-item">
+            <div class="cap">优先级 · 顾此失彼</div>
+            <p>容易安排不好优先级：抓着一条线深挖时，另一条（复盘 / 发片 / 拓新）就掉；要用每日 SOP 把顺序钉死。</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- PROBLEMS -->
@@ -1301,6 +1358,17 @@
           </div>
           <div class="os-actions"><span class="os-btn">Ready</span><span class="os-btn">When?</span></div>
         </div>
+        <div class="os-dialog">
+          <div class="os-title"><span>System Message</span><span class="os-x">×</span></div>
+          <div class="os-body">
+            <div class="os-icon">!</div>
+            <div>
+              <h4>优先级顾此失彼</h4>
+              <p>电商皮与效率还在爬坡时，任务一多就排不好序：深挖一条线，复盘/发片/拓新容易掉。要用每日 SOP 五步强制排序。</p>
+            </div>
+          </div>
+          <div class="os-actions"><span class="os-btn">Use SOP</span></div>
+        </div>
       </div>
     </section>
 
@@ -1315,7 +1383,7 @@
           <h2>对齐了哪些细节与流程</h2>
         </div>
       </div>
-      <div class="flow reveal">
+      <div class="flow reveal" style="grid-template-columns: repeat(5, 1fr);">
         <div class="flow-step">
           <div class="n">01</div>
           <h4>复盘昨日</h4>
@@ -1323,18 +1391,23 @@
         </div>
         <div class="flow-step">
           <div class="n">02</div>
-          <h4>看爆量素材</h4>
-          <p>大盘 + 内部讨论是否复制</p>
+          <h4>分析大盘爆量</h4>
+          <p>讨论是否复制</p>
         </div>
         <div class="flow-step">
           <div class="n">03</div>
-          <h4>陈述当日计划</h4>
-          <p>内容方向不重复</p>
+          <h4>分析内部爆量</h4>
+          <p>成功要素与复制法</p>
         </div>
         <div class="flow-step">
           <div class="n">04</div>
-          <h4>成片→投放→迭代</h4>
-          <p>罗盘「可优化」再裂变</p>
+          <h4>陈述个人计划</h4>
+          <p>按模板 · 方向不重复</p>
+        </div>
+        <div class="flow-step">
+          <div class="n">05</div>
+          <h4>分享想法/踩坑</h4>
+          <p>新想法 · 当日坑点</p>
         </div>
       </div>
       <div class="align-list reveal">
@@ -1375,6 +1448,13 @@
             <li><span class="badge">Q</span><div>什么时候可以正式写真人实拍创意脚本？要不要先完成破万单？</div></li>
             <li><span class="badge">Q</span><div>脚本是跟拍前工单制，还是先拍后补结构？</div></li>
             <li><span class="badge">CAN</span><div>我可立刻交：3 个前 3s 钩子变体 · 1 份内核卖点→实拍分镜 · 每周 1 条「可优化」真人片改法脚本</div></li>
+          </ul>
+          <h3 style="margin-top:1.75rem">③ 补齐：电商皮 · 效率 · 优先级</h3>
+          <p style="margin:0;color:var(--muted)">自我感受最需要继续练的三块，也希望带教在排期上帮我对齐「先做什么、后做什么」。</p>
+          <ul class="ask-list">
+            <li><span class="badge">LEARN</span><div>电商风格剪辑：对标组内跑量成片，练配乐 / 字幕 / 转场 / 特效皮</div></li>
+            <li><span class="badge">LEARN</span><div>效率：批量裂变少返工，一次过审率上去</div></li>
+            <li><span class="badge">LEARN</span><div>优先级：用每日 SOP 五步卡住顺序，减少顾此失彼</div></li>
           </ul>
         </div>
         <div class="ask-side">
@@ -1437,7 +1517,7 @@
           </tr>
           <tr>
             <td>4</td>
-            <td>近期高消耗「可优化」成片，是否由我主笔一版优化脚本？</td>
+            <td><strong>每日 SOP 五步：</strong>复盘昨日 → 分析大盘爆量 → 分析内部爆量 → 按模板陈述个人计划 → 分享新想法/踩坑。请带教确认我是否按此执行到位。</td>
             <td class="write"></td>
             <td class="write"></td>
           </tr>
@@ -1451,9 +1531,9 @@
           <span>2026-10-14</span>
         </div>
         <p style="margin:.5rem 0 0; font-size:.95rem; color:#333a48">
-          <strong>工作计划：</strong>每日罗盘复盘 → 维持裂变产能与单变量纪律 → 在授权下启动真人实拍创意脚本。<br />
-          <strong>结果差异：</strong>产能与投放闭环已建立；破万单结果指标待口径对齐；罗盘从「会看」到「会用」仍是最大过程差距。<br />
-          <strong>问题 / 支持：</strong>混变量、脚本短板、罗盘决策未熟 → 需要 KPI 口径、脚本接单时间点。
+          <strong>工作计划：</strong>每日 SOP 五步卡住优先级 → 罗盘复盘 → 维持裂变产能与单变量纪律 → 在授权下启动真人实拍创意脚本。<br />
+          <strong>结果差异：</strong>产能与投放闭环已建立；破万单结果指标待口径对齐；罗盘从「会看」到「会用」仍是过程差距。<br />
+          <strong>问题 / 支持：</strong>电商风格剪辑与效率仍需练；容易顾此失彼 → 需要 KPI 口径、脚本接单时间点，以及优先级排期上的校准。
         </p>
       </div>
     </section>
