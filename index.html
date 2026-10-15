@@ -655,6 +655,35 @@
       grid-template-columns: repeat(3, 1fr);
       gap: .85rem;
     }
+    .learned-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: .85rem;
+    }
+    .learned-item {
+      background: var(--white);
+      border: 2px solid var(--ink);
+      padding: 1.1rem 1.2rem;
+      position: relative;
+      box-shadow: 4px 4px 0 rgba(74,167,239,.22);
+    }
+    .learned-item .n {
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      color: var(--folder-deep);
+      letter-spacing: .06em;
+    }
+    .learned-item h3 {
+      margin: .3rem 0 .45rem;
+      font-size: 1.05rem;
+      letter-spacing: -.02em;
+      line-height: 1.25;
+    }
+    .learned-item p {
+      margin: 0;
+      font-size: .9rem;
+      color: #3a4150;
+    }
     .learn-item {
       border: 1.5px dashed rgba(18,20,26,.22);
       background: #fff8fb;
@@ -1004,6 +1033,7 @@
       .ask-panel,
       .align-list,
       .feel-grid,
+      .learned-grid,
       .stat-strip,
       .flow {
         grid-template-columns: 1fr;
@@ -1015,7 +1045,7 @@
       .hero { min-height: auto; }
     }
   </style>
-<!-- deploy 2026-10-14T06:35:16.513415Z -->
+<!-- deploy 2026-10-15T01:38:58.883012+00:00 -->
 </head>
 <body>
   <header class="topnav">
@@ -1026,6 +1056,7 @@
       </div>
       <nav class="nav-links" aria-label="章节">
         <a href="#done">做了什么</a>
+        <a href="#learned">学习了</a>
         <a href="#think">思考</a>
         <a href="#feel">感受</a>
         <a href="#problems">问题</a>
@@ -1222,6 +1253,61 @@
       </div>
     </section>
 
+    <!-- LEARNED -->
+    <section class="wrap" id="learned">
+      <div class="sec-head reveal">
+        <div class="sec-icon" style="background:#d8f5c8">
+          <div class="arrow-guitar"></div>
+        </div>
+        <div>
+          <div class="sec-tag">02 · Learned</div>
+          <h2>学习了什么</h2>
+        </div>
+      </div>
+      <div class="learned-grid reveal">
+        <article class="learned-item">
+          <div class="n">01 · 裂变底层逻辑</div>
+          <h3>爆款素材裂变 · 测试新开头</h3>
+          <p>理解裂变不是乱改：先锁已验证母本，再测新开头；一次一变量，用消耗结果判断外壳是否有效。</p>
+        </article>
+        <article class="learned-item">
+          <div class="n">02 · 小要素拓新</div>
+          <h3>什么是小要素拓新 · 如何按定位试新</h3>
+          <p>在不大改内核的前提下换小表达（开头壳、氛围、金句等）；结合品牌与产品定位，判断哪些新内容值得试、哪些不该碰。</p>
+        </article>
+        <article class="learned-item">
+          <div class="n">03 · 实拍现场</div>
+          <h3>器材摆放与演员配合</h3>
+          <p>跟拍学习三脚架、猪嘴等器材摆放与使用，以及如何配合演员走位、取景，保证镜头可剪、可用。</p>
+        </article>
+        <article class="learned-item">
+          <div class="n">04 · 素材基建</div>
+          <h3>实拍素材整理命名 · 上传云视频</h3>
+          <p>跑通实拍素材从整理、命名到上传云视频的全流程，方便后续检索、裂变与协作。</p>
+        </article>
+        <article class="learned-item">
+          <div class="n">05 · 投放上传</div>
+          <h3>裂变视频命名 · 云视频→千川</h3>
+          <p>掌握裂变视频命名规范，以及从云视频到千川上传投放的完整链路。</p>
+        </article>
+        <article class="learned-item">
+          <div class="n">06 · 复刻洗稿</div>
+          <h3>对标爆款如何复刻 · 如何洗稿</h3>
+          <p>学习对标爆款的拆解与复刻方法：抄结构 / 机制，而不是硬抄画面；在可测、合规前提下完成洗稿迭代。</p>
+        </article>
+        <article class="learned-item">
+          <div class="n">07 · AI 边界</div>
+          <h3>掌握杜蕾斯 AI 创作边界</h3>
+          <p>明确 AI 出片的品牌与合规红线（肖像权、审核、达人侵权等），在边界内做难抄、精致的外壳。</p>
+        </article>
+        <article class="learned-item">
+          <div class="n">08 · 剪辑手感</div>
+          <h3>初步掌握剪辑风格与流程</h3>
+          <p>初步建立电商短视频的剪辑风格认知与日常流程：从素材进剪 → 成片 → 发片/上传，形成可重复的作业节奏。</p>
+        </article>
+      </div>
+    </section>
+
     <!-- THINK -->
     <section class="wrap" id="think">
       <div class="sec-head reveal">
@@ -1229,7 +1315,7 @@
           <div class="arrow-guitar"></div>
         </div>
         <div>
-          <div class="sec-tag">02 · Think Fresh</div>
+          <div class="sec-tag">03 · Think Fresh</div>
           <h2>思考了什么</h2>
         </div>
       </div>
@@ -1274,7 +1360,7 @@
           <div class="arrow-guitar"></div>
         </div>
         <div>
-          <div class="sec-tag">03 · Human Signal</div>
+          <div class="sec-tag">04 · Human Signal</div>
           <h2>什么感受</h2>
         </div>
       </div>
@@ -1319,7 +1405,7 @@
           <div class="arrow-guitar"></div>
         </div>
         <div>
-          <div class="sec-tag">04 · System Message</div>
+          <div class="sec-tag">05 · System Message</div>
           <h2>出现过什么问题</h2>
         </div>
       </div>
@@ -1389,7 +1475,7 @@
           <div class="arrow-guitar"></div>
         </div>
         <div>
-          <div class="sec-tag">05 · Rhythm & Direction</div>
+          <div class="sec-tag">06 · Rhythm & Direction</div>
           <h2>对齐了哪些细节与流程</h2>
         </div>
       </div>
@@ -1437,7 +1523,7 @@
           <div class="arrow-guitar"></div>
         </div>
         <div>
-          <div class="sec-tag">06 · Loading Next Level</div>
+          <div class="sec-tag">07 · Loading Next Level</div>
           <h2>还想做什么</h2>
         </div>
       </div>
@@ -1493,7 +1579,7 @@
           <div class="arrow-guitar"></div>
         </div>
         <div>
-          <div class="sec-tag">07 · Mentor Feedback</div>
+          <div class="sec-tag">08 · Mentor Feedback</div>
           <h2>只需带教过一眼的事</h2>
         </div>
       </div>
@@ -1550,6 +1636,7 @@
         </div>
         <p style="margin:.5rem 0 0; font-size:.95rem; color:#333a48">
           <strong>工作计划：</strong>每日 SOP 五步自己卡住优先级 → 罗盘复盘 → 维持裂变产能与单变量纪律 → 在授权下启动真人实拍创意脚本。<br />
+          <strong>已学习：</strong>裂变与测开头逻辑、小要素拓新、实拍器材与演员配合、素材命名上传、云视频→千川、复刻洗稿、AI 创作边界、剪辑风格与流程。<br />
           <strong>结果差异：</strong>产能与投放闭环已建立；破万单结果指标待口径对齐；罗盘从「会看」到「会用」仍是过程差距。<br />
           <strong>问题 / 支持：</strong>电商风格剪辑与效率继续自练；裂变/拓新带宽与脚本入门标准，请带教给规则后我自行执行。
         </p>
